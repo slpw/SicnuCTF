@@ -1,7 +1,0 @@
-create database ctf;
-
-create table member(id int auto_increment primary key,user varchar(60) not null,info varchar(60) not null,score int not null,view int not null);
-
-insert into member(user,info,score,view)values("admin","sicnuctf{xxxxxxxx}",100,0);
-
-### 这里可以自己多创建几个用户 
