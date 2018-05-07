@@ -1,0 +1,11 @@
+create database  ctf;
+
+use ctf;
+
+create table member(id int auto_increment primary_key,user varchar(60) not null,info varchar(60) not null,score int not null,view int not null);
+
+
+insert into member(user,info,score,view)values("admin","sicnuctf{xxxxx}",100,0);
+
+
+## 可以insert增加数据
