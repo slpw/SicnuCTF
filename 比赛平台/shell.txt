@@ -1,0 +1,2 @@
+#service nginx stop;
+gunicorn --bind 0.0.0.0:80 -w 15 "CTFd:create_app()"  --access-logfile /var/www/out.log;

@@ -1,0 +1,48 @@
+{% include "head.html" %}
+你想偷电动车吗，	不想就走开<a href="/logout">logout</a>.
+<br><br><br><br><br>
+<form action="/make" method="POST">
+图片URL：
+<input type="text" name="url" value="电动车图片" onfocus="if(this.value=='电动车图片') this.value=''"><br>
+文本内容：
+<input type="text" name="text" value = "电动车型号" onfocus="if(this.value=='电动车型号') this.value=''"><br>
+{% csrf_token %}
+<input type="submit" value="偷电动车">
+</form>
+
+<h2>你的电动车</h2>
+{% for f in files %}
+<img src="/view/{{ f }}"></br>
+{% endfor %}
+
+<table border="1">
+  <tr>
+    <th>电动车型号</th>
+    <th>电动车图片</th>
+  </tr>
+  <tr>
+    <td>时尚最新款小电动车
+</td>
+    <td>http://pic1.58cdn.com.cn/zhuanzh/n_x989156990859116544_130_130.jpg</td>
+  </tr>
+  <tr>
+    <td>雅迪时尚电车
+</td>
+    <td>http://pic7.58cdn.com.cn/zhuanzh/n_x989140680511090689_130_130.jpg</td>
+  </tr>
+  <tr>
+    <td>珠白色奇蕾电动车
+</td>
+    <td>http://pic5.58cdn.com.cn/zhuanzh/n_v222aaab43aee845289974a6a5df46ac0f_130_130.jpg</td>
+  </tr>
+  <tr>
+    <td>深圳燃气电动车
+</td>
+    <td>http://www.tailg.com.cn/data/upload/20171122/5a154235262a9_thumb_350x350.jpg</td>
+  </tr>
+  <tr>
+    <td>自由战士电动车
+</td>
+    <td>http://www.tailg.com.cn/data/upload/20170304/58ba5d05973a4_thumb_350x350.jpg</td>
+  </tr>
+</table>

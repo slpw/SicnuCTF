@@ -1,0 +1,102 @@
+{% include "head.html" %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<style>
+    #login {
+    width: 290px;
+    height: auto;
+    overflow: hidden;
+    border: solid 1px #CCCCCC;
+    margin-left: auto;
+    margin-right: auto;
+}
+#login_title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #F60;
+    text-align: center;
+}
+.line {
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 20px;
+    text-align: center;
+    font-family: 楷体;
+}
+.line input {
+    width: 150px;
+}
+.line a {
+    font-size: 14px;
+    color: black;
+}
+.line span {
+    color: #F00;
+}
+#log_submit {
+    display: block;
+    width: 200px;
+    height: 30px;
+    margin-left: 45px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+
+<form action="/register" method="POST">
+  <div id="login">
+    <div id="login_title">注&nbsp;册</div>
+	{% csrf_token %}
+    <div class="line">账号&nbsp;&nbsp;
+      <input type="text" name="username" value="username" onfocus="if(this.value=='username') this.value=''">
+    </div>
+    <div class="line">密码&nbsp;&nbsp;
+      <input type="password" name="password" value="password" onfocus="if(this.value=='password') this.value=''">
+    </div>
+     <input id="log_submit" type="submit" value="注册">
+  </div>
+</form>
+
+
+<script type="text/javascript">
+    function postdata(){//提交数据函数
+
+     var form = new FormData(document.getElementById("regist"));
+   $.ajax({                                                 //调用jquery的ajax方法
+     type: "POST",                                     //设置ajax方法提交数据的形式
+     url: "/register",
+     processData:false,
+     contentType:false,
+     dataType: "text",
+     data: form, //输入框writer中的值作为提交的数据
+     beforeSend: function () {
+        // 禁用按钮防止重复提交
+    },
+
+     success: function(msg){                 //提交成功后的回调，msg变量是ok.php输出的内容。
+        // alert(msg);
+        //alert("窃瓦拉格！");
+       window.location.href="/index";//需要跳转的地址
+     },
+       error: function(msg){                 //提交成功后的回调，msg变量是ok.php输出的内容。
+       // alert(msg);                     //如果有必要，可以把msg变量的值显示到某个DIV元素中
+       alert("你是真的皮！");
+     }
+
+   });
+}
+</script>
+</body>
+
+</html>
